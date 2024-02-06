@@ -36,7 +36,7 @@ const CarMoreDetails = ({ isOpen, closeModel, car }: CarMoreDetailsProps) => {
               leaveTo="opacity-0"
             >
               <Dialog.Panel
-                className={`relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xsl transition-all flex flex-col gap-5`}
+                className={`relative w-full max-w-lg max-h-[90vh] p-6 overflow-y-auto transform rounded-xl bg-white text-left shadow-xsl transition-all flex flex-col gap-5`}
               >
                 <button
                   type="button"
@@ -75,6 +75,24 @@ const CarMoreDetails = ({ isOpen, closeModel, car }: CarMoreDetailsProps) => {
                           priority
                           className="object-contain"
                         />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-1 flex-col gap-2">
+                  <h2 className="text-semibold text-xl capitalize">
+                    {car.make} {car.model}
+                  </h2>
+                  <div className="mt-3 flex flex-wrap gap-4">
+                    {Object.entries(car).map(([key, value]) => (
+                      <div
+                        key={key}
+                        className="flex justify-between gap-5 w-full text-right"
+                      >
+                        <h4 className="text-grey capitalize">
+                          {key.split("_").join(" ")}
+                        </h4>
+                        <p className="text-black-100 font-semibold">{value}</p>
                       </div>
                     ))}
                   </div>
